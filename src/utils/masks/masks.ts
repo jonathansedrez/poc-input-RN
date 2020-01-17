@@ -77,8 +77,8 @@ export const renderMask = (
   const masks: Masks = {
     cpf: formatCpf(text),
     cnpj: formatCnpj(text),
-    ip: formatIp(text), //todo
-    mac: formatMac(text), //todo: uppercase
+    ip: formatIp(text),
+    mac: formatMac(text),
     cep: formatCep(text),
     telephone: formatTelephone(text),
   };
