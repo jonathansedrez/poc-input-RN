@@ -71,7 +71,7 @@ const App: () => ReactNode = () => {
         keyboardType="numeric"
       />
       <Input
-        label="Telephone"
+        label="Disabled"
         value={renderMask('telephone', telephone)}
         onChangeText={(text: string) => setTelephone(text)}
         keyboardType="numeric"
