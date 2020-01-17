@@ -1,7 +1,6 @@
 import React, {ReactElement} from 'react';
 import {SvgCss} from 'react-native-svg';
 import {Text, TextInput, View, TextInputProps} from 'react-native';
-import {useSpring, animated} from 'react-spring';
 
 import styles from './styles';
 import icons from '../../assets/icons';
@@ -19,33 +18,37 @@ export interface Masks {
 }
 
 export const Input = (props: InputProps): ReactElement => {
-  const {label, value, searchable, errorMessage} = props;
+  const {label, value, searchable, errorMessage, disabled} = props;
   const {
     wrapper,
-    innerWrapper,
-    inputStyle,
-    errorInputStyle,
     labelStyle,
-    searchIconStyle,
+    inputStyle,
+    innerWrapper,
+    disabledStyle,
     errorIconStyle,
-    errorMessageWrapperStyle,
+    searchIconStyle,
+    errorInputStyle,
     errorMessageStyle,
+    errorMessageWrapperStyle,
   } = styles;
 
-  const props = useSpring({opacity: 1, from: {opacity: 0}});
-z
   return (
     <View style={wrapper}>
       <Text style={labelStyle}>{label}</Text>
-      <View style={[innerWrapper, errorMessage && errorInputStyle]}>
+      <View
+        style={[
+          innerWrapper,
+          errorMessage && errorInputStyle,
+          disabled && disabledStyle,
+        ]}>
         {searchable && <SvgCss xml={icons.search} style={searchIconStyle} />}
         <TextInput {...props} style={inputStyle} value={value} />
       </View>
       {errorMessage ? (
-        <animated.View style={[errorMessageWrapperStyle, props]}>
+        <View style={[errorMessageWrapperStyle, props]}>
           <SvgCss xml={icons.errorIcon} style={errorIconStyle} />
           <Text style={errorMessageStyle}>{errorMessage}</Text>
-        </animated.View>
+        </View>
       ) : null}
     </View>
   );

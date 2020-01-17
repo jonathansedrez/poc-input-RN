@@ -2,7 +2,7 @@ import React, {ReactNode, useState} from 'react';
 import {ScrollView} from 'react-native';
 import {renderMask} from './src/utils/masks';
 
-import {Input} from './src/Components';
+import {Input} from './src/components';
 
 const App: () => ReactNode = () => {
   const [search, setSearch] = useState<string>('');
@@ -69,6 +69,13 @@ const App: () => ReactNode = () => {
         value={renderMask('telephone', telephone)}
         onChangeText={(text: string) => setTelephone(text)}
         keyboardType="numeric"
+      />
+      <Input
+        label="Telephone"
+        value={renderMask('telephone', telephone)}
+        onChangeText={(text: string) => setTelephone(text)}
+        keyboardType="numeric"
+        disabled={true}
       />
     </ScrollView>
   );

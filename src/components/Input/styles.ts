@@ -4,7 +4,6 @@ export default StyleSheet.create({
   wrapper: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#f5f5f5',
     margin: 8,
   },
   innerWrapper: {
@@ -51,5 +50,8 @@ export default StyleSheet.create({
     fontSize: 12,
     color: '#eb4034',
     marginLeft: 8,
+  },
+  disabledStyle: {
+    backgroundColor: '#e6e7e8',
   },
 });
